@@ -1,0 +1,55 @@
+.navbar ul li {
+    color:white;
+    list-style-type:none;
+    font-size:25px;
+    margin-bottom:5px;
+    display:block;
+  }
+  .navbar ul {
+    display: block;
+      
+  }
+  .nav_img {
+    background-position:center;
+    width:800px;
+    height:120px;
+    border-radius:10px;
+    
+  }
+  .navbar {
+    height:150px;
+    display:flex;
+    justify-content:space-between;
+  }
+  a {
+    color:white;
+    text-decoration: none;;
+  }
+  .active {
+    border-bottom:2px solid white;
+    transform:rotate3d(10%)
+  }
+  .photo_friends {
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    background-size: auto;
+    background-position: center;
+  }
+  .list_friends {
+    display:flex;
+    justify-content: space-between;
+    width:150px;
+  }
+  .name_friends {
+    font-size:16px;
+    text-align:center;
+  }
+  .main_img {
+    height:120px;
+  }
+  .friends_info {
+    color:white;
+    margin-top:50px;
+    margin-bottom:20px;
+  }

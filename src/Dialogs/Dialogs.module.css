@@ -1,0 +1,63 @@
+.dialogs {
+    width:800px;
+    margin-left:230px;
+}
+.main {
+    color:white;
+    margin-left:0px;
+}
+.message {
+    display:flex;
+    justify-content: space-between;
+    margin-top:30px;
+}
+.text ul li {
+    color:white;
+    list-style-type:none;
+    margin-top:25px;
+}
+.text {
+    margin-left:0px;
+    width:85%;
+}
+.names ul li {
+    margin-bottom:20px;
+}
+ul:nth-child(1) > li {
+    margin-top:0px;
+}
+.active {
+    font-size:22px;
+    border-bottom:2px solid white;
+    transition:0.2s;
+}
+.text li {
+    display:flex;
+}
+.text li img {
+    width:50px;
+    height:50px;
+    background-size:auto;
+    border-radius:50%;
+    border:1px solid white;
+    margin-top:-10px;
+}
+
+.text_me {
+    justify-content: flex-end;
+}
+
+.text_me .message_me {
+    margin-right:20px;
+    text-align: right;
+}
+.text_friend .message_friend {
+    margin-left:20px;
+    text-align:left;
+}
+.dialogs_photo {
+    width:30px;
+    height:30px;
+    background-position: center;
+    border-radius:50%;
+}
