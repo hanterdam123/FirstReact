@@ -1,6 +1,6 @@
 .dialogs {
     width:800px;
-    margin-left:230px;
+    margin-left:225px;
 }
 .main {
     color:white;
@@ -18,10 +18,12 @@
 }
 .text {
     margin-left:0px;
-    width:85%;
+    width:80%;
 }
-.names ul li {
+.names ul li a {
     margin-bottom:20px;
+    align-items: center;
+    display:flex;
 }
 ul:nth-child(1) > li {
     margin-top:0px;
@@ -40,11 +42,18 @@ ul:nth-child(1) > li {
     background-size:auto;
     border-radius:50%;
     border:1px solid white;
-    margin-top:-10px;
+    display:block;
 }
 
 .text_me {
     justify-content: flex-end;
+    display:flex;
+    align-items:center;
+}
+.text_friend {
+    justify-content: flex-start;
+    display:flex;
+    align-items:center;
 }
 
 .text_me .message_me {
@@ -56,8 +65,10 @@ ul:nth-child(1) > li {
     text-align:left;
 }
 .dialogs_photo {
-    width:30px;
-    height:30px;
+    width:40px;
+    height:40px;
     background-position: center;
     border-radius:50%;
+    display:block;
+    margin-right:10px;
 }

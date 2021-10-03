@@ -1,3 +1,6 @@
+.profile {
+  margin-left:225px;
+}
 .profile img {
     display:cover;
     width:100px;
@@ -7,9 +10,6 @@
   .description {
     color:white;
     margin-left:20px;
-  }
-  .profile {
-    margin-left:230px;
   }
   .people {
     display:flex;
