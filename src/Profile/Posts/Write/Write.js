@@ -5,7 +5,7 @@ const Write = (props) => {
     return (
         <div className={s.write}>
             <div className={s.info}>
-            <img src="https://im0-tub-ru.yandex.net/i?id=6503dad61320e78e73d77ce76c7ecfb9&n=13"></img>
+            <img src={props.photo}></img>
             <span>{props.name}</span>
             </div>
             <div className={s.block}>

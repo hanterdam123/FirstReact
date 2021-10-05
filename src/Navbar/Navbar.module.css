@@ -32,8 +32,6 @@
   .photo_friends {
     width:45px;
     height:45px;
-    border-radius:50%;
-    background-size: auto;
     background-position: center;
   }
   .list_friends {

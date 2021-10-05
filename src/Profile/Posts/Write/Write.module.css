@@ -19,12 +19,14 @@
 }
 .block {
    display:flex;
+   align-items:flex-end;
    margin-top:5px;
 }
 .block img {
     margin-left:10px;
     width:35px;
     height:35px;
+    display:block;
 }
 .info img {
     height:50px;
