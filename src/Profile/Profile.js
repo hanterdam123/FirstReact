@@ -13,7 +13,7 @@ const Profile = (props) => {
                     <Name text='nickname'/>
                 </div>
             </div>
-            <Posts PostsInfo={props.state.PostsInfo}/>
+            <Posts PostsInfo={props.state.PostsInfo} addPost={props.addPost}/>
         </div>
         
     );

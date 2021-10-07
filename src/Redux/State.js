@@ -1,3 +1,4 @@
+import { rerenderEntireTree } from "../render";
 
 let State = {
     MessagePage: 
@@ -11,7 +12,8 @@ let State = {
           {text:'Hello, Nikita, how are you ?', id:0, name:'Artem' ,photo:'https://yt3.ggpht.com/a/AATXAJyM4KuEcv_bqSIjZreW0i3voF85xaiLKUuhN4punw=s900-c-k-c0xffffffff-no-rj-mo'},
           {text:"It's fantastic", id:1, name:'Nikita', photo:'https://st3.depositphotos.com/1007566/32981/v/950/depositphotos_329811158-stock-illustration-young-man-avatar-character-icon.jpg'},
           {text:"Where are you from ?", id:1, name:'Nikita', photo:'https://st3.depositphotos.com/1007566/32981/v/950/depositphotos_329811158-stock-illustration-young-man-avatar-character-icon.jpg'},
-          {text:'I am from Russia!', id:0, name:'Artem' ,photo:'https://yt3.ggpht.com/a/AATXAJyM4KuEcv_bqSIjZreW0i3voF85xaiLKUuhN4punw=s900-c-k-c0xffffffff-no-rj-mo'}
+          {text:'I am from Russia!', id:0, name:'Artem' ,photo:'https://yt3.ggpht.com/a/AATXAJyM4KuEcv_bqSIjZreW0i3voF85xaiLKUuhN4punw=s900-c-k-c0xffffffff-no-rj-mo'},
+          {text:"And you?", id:1, name:'Nikita', photo:'https://st3.depositphotos.com/1007566/32981/v/950/depositphotos_329811158-stock-illustration-young-man-avatar-character-icon.jpg'}
       ]
     },
     ProfilePage: 
@@ -36,4 +38,18 @@ let State = {
         ]
     },
   }
+
+export let addPost = (message) => {
+  let newPost = {
+    message: message,
+    like:22,
+    dislike:10,
+    id: 1,
+    name:'Nikita',
+    photo:'https://st3.depositphotos.com/1007566/32981/v/950/depositphotos_329811158-stock-illustration-young-man-avatar-character-icon.jpg'
+  };
+  State.ProfilePage.PostsInfo.push(newPost);
+  rerenderEntireTree(State);
+}
+
 export default State;
