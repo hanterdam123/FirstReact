@@ -1,6 +1,13 @@
-import State from './Redux/State.js'
+
 import './index.css';
-import { rerenderEntireTree } from './render';
+import reportWebVitals from './reportWebVitals';
+import { rerender } from './render';
+import State from './Redux/State';
 
 
-rerenderEntireTree(State);
+rerender(State)
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();

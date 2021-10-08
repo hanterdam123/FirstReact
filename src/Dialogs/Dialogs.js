@@ -2,10 +2,10 @@ import React from 'react';
 import s from './Dialogs.module.css'
 import {NavLink} from 'react-router-dom'
 
-let newMessage = React.createRef();
-let addMessage = (props) => {
-   let text = newMessage.current.value;
-   props.addMessage(text); 
+let newMessageElement = React.createRef();
+let addMessage = () => {
+    let text = newMessageElement.current.value;
+    alert(text);
 }
 
 const DialogsItem = (props) => {
@@ -68,7 +68,7 @@ const Dialogs = (props) => {
                     {MessagesElement}
                 </div>
             </div>
-            <input ref={newMessage} className={s.input}></input>
+            <input ref={newMessageElement} className={s.input}></input>
             <button onClick={addMessage} className={s.button}>Send</button>
         </div>
     );

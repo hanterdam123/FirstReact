@@ -1,4 +1,4 @@
-import { rerenderEntireTree } from "../render";
+import { rerender } from "../render";
 
 let State = {
     MessagePage: 
@@ -21,7 +21,7 @@ let State = {
       PostsInfo: [
         {message:'Hello, World!', like:'20', dislike:'2', id:1,name:'Artem', photo:'https://placepic.ru/wp-content/uploads/2018/01/art-krasivyie-kartinki-Putin-politika-1331294.jpeg'},
         {message:'My name is Arthur', like:'20', dislike:'2',id:2,name:'Arthur', photo:'https://implantes-dentales.odonto.com.ar/wp-content/uploads/2018/01/Depositphotos_32817757_l.jpg'},
-        {message:'How are you?', like:'20', dislike:'2',id:3,name:'Masha', photo:'https://yobte.ru/uploads/posts/2019-11/krasivye-devushki-s-dlinnymi-volosami-60-foto-43.jpg'}
+        {message:'How are you?', like:'20', dislike:'2',id:3,name:'Masha', photo:'https://yobte.ru/uploads/posts/2019-11/krasivye-devushki-s-dlinnymi-volosami-60-foto-43.jpg'},
       ]
     },
     SideBar: {
@@ -38,18 +38,16 @@ let State = {
         ]
     },
   }
-
 export let addPost = (message) => {
-  let newPost = {
-    message: message,
-    like:22,
-    dislike:10,
-    id: 1,
-    name:'Nikita',
-    photo:'https://st3.depositphotos.com/1007566/32981/v/950/depositphotos_329811158-stock-illustration-young-man-avatar-character-icon.jpg'
-  };
-  State.ProfilePage.PostsInfo.push(newPost);
-  rerenderEntireTree(State);
-}
-
-export default State;
+    let newPost = {
+      message:message,
+      id:1,
+      like:0,
+      dislike:0,
+      name:'Artem',
+      photo:'https://yt3.ggpht.com/a/AATXAJyM4KuEcv_bqSIjZreW0i3voF85xaiLKUuhN4punw=s900-c-k-c0xffffffff-no-rj-mo'
+    };
+    State.ProfilePage.PostsInfo.push(newPost);
+    rerender(State);
+  }
+  export default State;
