@@ -46,8 +46,20 @@ export let addPost = (message) => {
       dislike:0,
       name:'Artem',
       photo:'https://yt3.ggpht.com/a/AATXAJyM4KuEcv_bqSIjZreW0i3voF85xaiLKUuhN4punw=s900-c-k-c0xffffffff-no-rj-mo'
-    };
-    State.ProfilePage.PostsInfo.push(newPost);
-    rerender(State);
-  }
+    }
+    State.ProfilePage.PostsInfo.push(newPost)
+    rerender(State)
+}
+
+export let addMessage = (message) => {
+    let newMessage = {
+      text:message,
+      id:0,
+      name:'Artem',
+      photo: 'https://yt3.ggpht.com/a/AATXAJyM4KuEcv_bqSIjZreW0i3voF85xaiLKUuhN4punw=s900-c-k-c0xffffffff-no-rj-mo'
+    }
+    State.MessagePage.MessagesInfo.push(newMessage)
+    rerender(State)
+}
+
   export default State;
