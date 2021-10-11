@@ -37,10 +37,12 @@ let State = {
           {name:'Masha', id:3, photo:'https://yobte.ru/uploads/posts/2019-11/krasivye-devushki-s-dlinnymi-volosami-60-foto-43.jpg'}
         ]
     },
+    newPostText:"write...",
+    newMessageText:'your message...'
   }
-export let addPost = (message) => {
+export let addPost = () => {
     let newPost = {
-      message:message,
+      message:State.newPostText,
       id:1,
       like:0,
       dislike:0,
@@ -62,4 +64,13 @@ export let addMessage = (message) => {
     rerender(State)
 }
 
+export let changePost = (text) => {
+    State.newPostText=text
+    rerender(State)
+}
+
+export let changeMessage = (text) => {
+    State.newMessageText = text
+    rerender(State)
+}
   export default State;

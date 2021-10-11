@@ -11,11 +11,17 @@ const Posts = (props) => {
     let newPost = () => {
         let text = newPostElement.current.value;
         props.addPost(text);
+        props.changePost('')
+    }
+
+    let onChange = () => {
+        let text = newPostElement.current.value;
+        props.changePost(text);
     }
 
     return (
         <div className={s.posts}>
-            <input ref={newPostElement} placeholder="write..."></input>
+            <input onChange={onChange} value={props.newPostText} ref={newPostElement} placeholder="write..."></input>
             <button onClick={newPost}>POST</button>
             {PostsElement}
         </div>

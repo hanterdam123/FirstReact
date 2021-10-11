@@ -50,9 +50,16 @@ const Dialogs = (props) => {
     let MessagesElement = props.state.MessagesInfo.map(m => <DialogsText text={m.text} id={m.id} name={m.name} photo={m.photo}/>)
     
     let newMessageElement = React.createRef();
+
     let addMessage = () => {
-    let text = newMessageElement.current.value;
-    props.addMessage(text);
+        let text = newMessageElement.current.value;
+        props.addMessage(text);
+        props.changeMessage('');
+    }
+
+    let onChange = () => {
+        let text = newMessageElement.current.value;
+        props.changeMessage(text);
     }
 
     return (
@@ -68,7 +75,7 @@ const Dialogs = (props) => {
                     {MessagesElement}
                 </div>
             </div>
-            <input ref={newMessageElement} className={s.input}></input>
+            <input onChange={onChange} value={props.newMessageText} ref={newMessageElement} className={s.input}></input>
             <button onClick={addMessage} className={s.button}>Send</button>
         </div>
     );
