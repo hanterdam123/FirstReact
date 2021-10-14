@@ -1,6 +1,18 @@
-import { rerender } from "../render";
+let Store = {
 
-let State = {
+  
+MainRerender()  {
+  console.log('lol')
+},
+getState() {
+  return this._State
+},
+subscribe(observer) {
+  this.MainRerender = observer;
+},
+
+
+_State: {
     MessagePage: 
     {
       DialogsInfo: [
@@ -39,38 +51,40 @@ let State = {
     },
     newPostText:"write...",
     newMessageText:'your message...'
-  }
-export let addPost = () => {
+  },
+
+
+addPost() {
     let newPost = {
-      message:State.newPostText,
+      message:this.getState().newPostText,
       id:1,
       like:0,
       dislike:0,
       name:'Artem',
       photo:'https://yt3.ggpht.com/a/AATXAJyM4KuEcv_bqSIjZreW0i3voF85xaiLKUuhN4punw=s900-c-k-c0xffffffff-no-rj-mo'
     }
-    State.ProfilePage.PostsInfo.push(newPost)
-    rerender(State)
-}
-
-export let addMessage = (message) => {
+    this.getState().ProfilePage.PostsInfo.push(newPost)
+    this.MainRerender()
+},
+addMessage(message) {
     let newMessage = {
       text:message,
       id:0,
       name:'Artem',
       photo: 'https://yt3.ggpht.com/a/AATXAJyM4KuEcv_bqSIjZreW0i3voF85xaiLKUuhN4punw=s900-c-k-c0xffffffff-no-rj-mo'
     }
-    State.MessagePage.MessagesInfo.push(newMessage)
-    rerender(State)
-}
+    this.getState().MessagePage.MessagesInfo.push(newMessage)
+    this.MainRerender()
+},
+changePost(text) {
+    this.getState().newPostText = text
+    this.MainRerender()
+},
+changeMessage(text) {
+    this.getState().newMessageText = text
+    this.MainRerender()
+},
 
-export let changePost = (text) => {
-    State.newPostText=text
-    rerender(State)
-}
 
-export let changeMessage = (text) => {
-    State.newMessageText = text
-    rerender(State)
 }
-  export default State;
+export default Store
