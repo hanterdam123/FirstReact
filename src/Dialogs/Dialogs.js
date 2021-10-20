@@ -1,65 +1,22 @@
-import React from 'react';
+import React from 'react'
 import s from './Dialogs.module.css'
-import {NavLink} from 'react-router-dom'
-
-const DialogsItem = (props) => {
-    return (
-        <ul>
-            <li>
-                <NavLink to={'/dialogs/' + props.id} activeClassName={s.active}>
-                    <img className={s.dialogs_photo} src={props.photo}></img>
-                    {props.name}
-                </NavLink>
-            </li>
-        </ul>
-    );
-}
- 
-const DialogsText = (props) => {
-    if (props.id == 0) {
-    return (
-        <ul>
-            <li className={s.text_me}>
-                <p className={s.message_me}>{props.text}</p>
-                <div>
-                    <img src={props.photo}></img>
-                    <p>{props.name}</p>
-                </div>
-            </li>
-        </ul>
-    )
-    }
-else {
-    return (
-    <ul>
-        <li className={s.text_friend}>
-            <div>
-                <img src={props.photo}></img>
-                <p>{props.name}</p>
-            </div>
-            <p className={s.message_friend}>{props.text}</p>
-        </li>
-    </ul>
-    );
-    }
-}
+import DialogsText from './DialogsText/DialogsText.js'
+import DialogsItem from './DialogsItem/DialogsItem.js'
+import {addMessageActionCreator, updateMessageActionCreator} from '.././Redux/MessageReducer/MessageReducer.js'
 
 const Dialogs = (props) => {
     
-    let DialogsElement = props.state.DialogsInfo.map(dialog => <DialogsItem name={dialog.name} id={dialog.id} photo={dialog.photo}/>)
-    let MessagesElement = props.state.MessagesInfo.map(m => <DialogsText text={m.text} id={m.id} name={m.name} photo={m.photo}/>)
+    const DialogsElement = props.state.MessagePage.DialogsInfo.map(dialog => <DialogsItem name={dialog.name} id={dialog.id} photo={dialog.photo}/>)
+    const MessagesElement = props.state.MessagePage.MessagesInfo.map(m => <DialogsText text={m.text} id={m.id} name={m.name} photo={m.photo}/>)
     
-    let newMessageElement = React.createRef();
 
     let addMessage = () => {
-        let text = newMessageElement.current.value;
-        props.addMessage(text);
-        props.changeMessage('');
+        props.dispatch(addMessageActionCreator());
     }
 
-    let onChange = () => {
-        let text = newMessageElement.current.value;
-        props.changeMessage(text);
+    let onChange = (e) => {
+        let text = e.target.value;
+        props.dispatch(updateMessageActionCreator(text));
     }
 
     return (
@@ -75,7 +32,7 @@ const Dialogs = (props) => {
                     {MessagesElement}
                 </div>
             </div>
-            <input onChange={onChange} value={props.newMessageText} ref={newMessageElement} className={s.input}></input>
+            <input onChange={onChange} value={props.state.MessagePage.newMessageText} className={s.input}></input>
             <button onClick={addMessage} className={s.button}>Send</button>
         </div>
     );

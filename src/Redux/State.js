@@ -1,16 +1,29 @@
-let Store = {
+import  messageReducer  from "./MessageReducer/MessageReducer.js"
+import  profileReducer  from "./ProfileReducer/ProfileReducer.js"
 
+const ADD_MESSAGE = 'ADD_MESSAGE'
+const CHANGE_MESSAGE = 'CHANGE_MESSAGE'
+const ADD_POST = 'ADD_POST'
+const CHANGE_POST = 'CHANGE_POST'
+
+
+let Store = {
   
-MainRerender()  {
-  console.log('lol')
+  //rerender(restart)
+
+callSubscriber()  {
+  console.log(' ')
 },
+
 getState() {
   return this._State
 },
+  
 subscribe(observer) {
-  this.MainRerender = observer;
+  this.callSubscriber = observer;
 },
 
+  // state
 
 _State: {
     MessagePage: 
@@ -34,9 +47,9 @@ _State: {
         {message:'Hello, World!', like:'20', dislike:'2', id:1,name:'Artem', photo:'https://placepic.ru/wp-content/uploads/2018/01/art-krasivyie-kartinki-Putin-politika-1331294.jpeg'},
         {message:'My name is Arthur', like:'20', dislike:'2',id:2,name:'Arthur', photo:'https://implantes-dentales.odonto.com.ar/wp-content/uploads/2018/01/Depositphotos_32817757_l.jpg'},
         {message:'How are you?', like:'20', dislike:'2',id:3,name:'Masha', photo:'https://yobte.ru/uploads/posts/2019-11/krasivye-devushki-s-dlinnymi-volosami-60-foto-43.jpg'},
-      ]
+      ],
     },
-    SideBar: {
+    NavBar: {
         data:[
         {name:'NEWS', src:'/news'},
         {name:'MESSAGES', src:'/dialogs'},
@@ -47,44 +60,23 @@ _State: {
           {name:'Nikita',id:1,photo:'https://st3.depositphotos.com/1007566/32981/v/950/depositphotos_329811158-stock-illustration-young-man-avatar-character-icon.jpg'},
           {name:'Arthur',id:2,photo:'https://implantes-dentales.odonto.com.ar/wp-content/uploads/2018/01/Depositphotos_32817757_l.jpg'},
           {name:'Masha', id:3, photo:'https://yobte.ru/uploads/posts/2019-11/krasivye-devushki-s-dlinnymi-volosami-60-foto-43.jpg'}
+        ],
+        sidebar:[
+          {photo:"https://catherineasquithgallery.com/uploads/posts/2021-02/1612864586_46-p-krasnii-fon-bravo-stars-57.jpg"}
         ]
     },
-    newPostText:"write...",
-    newMessageText:'your message...'
+    newMessageText:' ',
+    newPostText:' '
+
   },
 
+  // dispatch action's
 
-addPost() {
-    let newPost = {
-      message:this.getState().newPostText,
-      id:1,
-      like:0,
-      dislike:0,
-      name:'Artem',
-      photo:'https://yt3.ggpht.com/a/AATXAJyM4KuEcv_bqSIjZreW0i3voF85xaiLKUuhN4punw=s900-c-k-c0xffffffff-no-rj-mo'
-    }
-    this.getState().ProfilePage.PostsInfo.push(newPost)
-    this.MainRerender()
-},
-addMessage(message) {
-    let newMessage = {
-      text:message,
-      id:0,
-      name:'Artem',
-      photo: 'https://yt3.ggpht.com/a/AATXAJyM4KuEcv_bqSIjZreW0i3voF85xaiLKUuhN4punw=s900-c-k-c0xffffffff-no-rj-mo'
-    }
-    this.getState().MessagePage.MessagesInfo.push(newMessage)
-    this.MainRerender()
-},
-changePost(text) {
-    this.getState().newPostText = text
-    this.MainRerender()
-},
-changeMessage(text) {
-    this.getState().newMessageText = text
-    this.MainRerender()
-},
-
-
+dispatch(action) {
+  this._State.MessagePage = messageReducer(this._State.MessagePage , action)
+  this._State.ProfilePage = profileReducer(this._State.ProfilePage , action)
+  this.callSubscriber();
+  }
 }
+
 export default Store

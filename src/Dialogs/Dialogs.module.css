@@ -30,6 +30,11 @@
     align-items: center;
     display:flex;
 }
+
+.names ul li {
+    list-style-type:none;
+}
+
 ul:nth-child(1) > li {
     margin-top:0px;
 }

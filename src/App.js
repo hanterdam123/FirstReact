@@ -13,9 +13,9 @@ function App(props) {
     <BrowserRouter>
       <div className="app">
         <Header/>
-        <Navbar state={props.AppState.SideBar}/>
-        <Route path='/dialogs' render={() => <Dialogs state={props.AppState.MessagePage} addMessage={props.addMessage} newMessageText={props.newMessageText} changeMessage={props.changeMessage}/>}/>
-        <Route path='/profile' render={() => <Profile state={props.AppState.ProfilePage} addPost={props.addPost} newPostText={props.newPostText} changePost={props.changePost}/>}/>
+        <Navbar state={props.AppState.NavBar}/>
+        <Route path='/dialogs' render={() => <Dialogs state={props.AppState} dispatch={props.dispatch}/>}/>
+        <Route path='/profile' render={() => <Profile state={props.AppState} dispatch={props.dispatch}/>}/>
         <Route path='/news' component={News}/>
         <Route path='/info' component={Info}/>
       </div>

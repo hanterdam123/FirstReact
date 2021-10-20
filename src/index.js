@@ -10,7 +10,7 @@ import App from './App';
 let rerender = () => { 
 ReactDOM.render(
   <React.StrictMode>
-    <App AppState={Store.getState()} addPost={Store.addPost.bind(Store)} addMessage={Store.addMessage.bind(Store)} newPostText={Store.getState().newPostText} changePost={Store.changePost.bind(Store)} newMessageText={Store.getState().newMessageText} changeMessage={Store.changeMessage.bind(Store)}/>
+    <App AppState={Store.getState()} dispatch={Store.dispatch.bind(Store)}/>
   </React.StrictMode>,
   document.getElementById('root')
 );
