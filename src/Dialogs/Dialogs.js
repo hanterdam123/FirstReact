@@ -6,8 +6,8 @@ import {addMessageActionCreator, updateMessageActionCreator} from '.././Redux/Me
 
 const Dialogs = (props) => {
     
-    const DialogsElement = props.state.MessagePage.DialogsInfo.map(dialog => <DialogsItem name={dialog.name} id={dialog.id} photo={dialog.photo}/>)
-    const MessagesElement = props.state.MessagePage.MessagesInfo.map(m => <DialogsText text={m.text} id={m.id} name={m.name} photo={m.photo}/>)
+    const DialogsElement = props.state.DialogsInfo.map(dialog => <DialogsItem name={dialog.name} id={dialog.id} photo={dialog.photo}/>)
+    const MessagesElement = props.state.MessagesInfo.map(m => <DialogsText text={m.text} id={m.id} name={m.name} photo={m.photo}/>)
     
 
     let addMessage = () => {
@@ -32,7 +32,7 @@ const Dialogs = (props) => {
                     {MessagesElement}
                 </div>
             </div>
-            <input onChange={onChange} value={props.state.MessagePage.newMessageText} className={s.input}></input>
+            <input onChange={onChange} value={props.state.newMessageText} className={s.input}></input>
             <button onClick={addMessage} className={s.button}>Send</button>
         </div>
     );

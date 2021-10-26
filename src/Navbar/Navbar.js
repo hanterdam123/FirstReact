@@ -6,7 +6,7 @@ import Sidebar from './Sidebar/Sidebar.js'
 
 const Navbar = (props) => {
 
-  let Menu = props.state.data.map(s => <Carte name={s.name} src={s.src}/>)
+  let Menu = props.state.info.map(s => <Carte name={s.name} src={s.src}/>)
   let Friends = props.state.friends.map(s => <FriendsInfo name={s.name} id={s.id} photo={s.photo}/>)
   let Background = props.state.sidebar.map(s => <Sidebar photo={s.photo}/>)
 
