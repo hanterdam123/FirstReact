@@ -1,4 +1,3 @@
-const ADD_FRIEND = 'ADD_FRIEND'
 
 let initialState = {
        info:[
@@ -13,7 +12,7 @@ let initialState = {
          {name:'Masha', id:3, photo:'https://yobte.ru/uploads/posts/2019-11/krasivye-devushki-s-dlinnymi-volosami-60-foto-43.jpg'}
        ],
        sidebar:[
-         {photo:"https://catherineasquithgallery.com/uploads/posts/2021-02/1612864586_46-p-krasnii-fon-bravo-stars-57.jpg"}
+         {photo:"https://www.ixbt.online/idata/gtnews/2020/08/[5f2afc5556bae]/dR719lj213411WqhfZaFH5CB536oc6M47E7mPOLO.jpeg"}
        ]
 }
 

@@ -1,26 +1,23 @@
 import React from 'react';
 import s from './Navbar.module.css';
-import Carte from './Carte/Carte.js'
-import FriendsInfo from './FriendsInfo/FriendsInfo.js'
-import Sidebar from './Sidebar/Sidebar.js'
 
 const Navbar = (props) => {
 
-  let Menu = props.state.info.map(s => <Carte name={s.name} src={s.src}/>)
-  let Friends = props.state.friends.map(s => <FriendsInfo name={s.name} id={s.id} photo={s.photo}/>)
-  let Background = props.state.sidebar.map(s => <Sidebar photo={s.photo}/>)
+  let menu = props.menu
+  let friends = props.friends
+  let background = props.background
 
   return (
       <div className={s.navbar}>
         <ul>
-            {Menu}
+            {menu}
           <p className={s.friends_info}>Friends</p>
           <div className={s.list_friends}>
-            {Friends}
+            {friends}
           </div>
         </ul>
         <div className={s.main_img}>
-          {Background}
+            {background}
         </div>
       </div>
 

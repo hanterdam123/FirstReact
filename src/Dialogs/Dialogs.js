@@ -1,22 +1,19 @@
 import React from 'react'
 import s from './Dialogs.module.css'
-import DialogsText from './DialogsText/DialogsText.js'
-import DialogsItem from './DialogsItem/DialogsItem.js'
-import {addMessageActionCreator, updateMessageActionCreator} from '.././Redux/MessageReducer/MessageReducer.js'
 
 const Dialogs = (props) => {
     
-    const DialogsElement = props.state.DialogsInfo.map(dialog => <DialogsItem name={dialog.name} id={dialog.id} photo={dialog.photo}/>)
-    const MessagesElement = props.state.MessagesInfo.map(m => <DialogsText text={m.text} id={m.id} name={m.name} photo={m.photo}/>)
+    const DialogsElement = props.DialogsElement
+    const MessagesElement = props.MessagesElement
     
 
     let addMessage = () => {
-        props.dispatch(addMessageActionCreator());
+        props.addMessage()
     }
 
     let onChange = (e) => {
         let text = e.target.value;
-        props.dispatch(updateMessageActionCreator(text));
+        props.onChange(text)
     }
 
     return (
