@@ -2,7 +2,6 @@ import React from 'react';
 import s from './Posts.module.css';
 
 const Posts = (props) => {
-
     let PostsElement = props.PostsElement
 
     let newPost = () => {
@@ -20,6 +19,6 @@ const Posts = (props) => {
             <button onClick={newPost}>POST</button>
             {PostsElement}
         </div>
-    );
+    )
 }
 export default Posts;
