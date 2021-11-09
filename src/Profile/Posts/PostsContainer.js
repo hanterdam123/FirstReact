@@ -3,18 +3,21 @@ import Posts from './Posts'
 import {addPostActionCreator, updatePostActionCreator} from '../../Redux/ProfileReducer/ProfileReducer.js'
 import { connect } from 'react-redux';
 
+
 let mapStateToProps = (state) => {
     return {
-    PostsElement: state.PostsInfo
+    PostsElement: state.profileReducer.PostsInfo
     }
 }
 
-let mapDispatchToProps = (dispatch) => {
+let mapDispatchToProps = (dispatch) => 
+{
     return {
         newPost: () => {
             dispatch(addPostActionCreator())
         },
-        onCgange: (text) => {
+
+        onChange: (text) => {
             dispatch(updatePostActionCreator(text))
         }
     }
