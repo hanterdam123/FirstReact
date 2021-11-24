@@ -7,6 +7,7 @@ import News from './News/News.js'
 import Info from './Info/Info.js'
 import {BrowserRouter,Route} from 'react-router-dom'
 import NavbarContainer from './Navbar/NavbarContainer'
+import UsersContainer from './Users/UsersContainer'
 
 function App(props) {
   return (
@@ -18,6 +19,7 @@ function App(props) {
         <Route path='/profile' render={() => <Profile store={props.store} dispatch={props.dispatch}/>} />
         <Route path='/news' component={News} />
         <Route path='/info' component={Info} />
+        <Route path='/users' render={() => <UsersContainer store={props.store} dispatch={props.dispatch}/>}/>
       </div>
     </BrowserRouter>
   );

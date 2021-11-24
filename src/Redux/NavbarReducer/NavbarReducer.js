@@ -5,6 +5,7 @@ let initialState = {
        {name:'MESSAGES', src:'/dialogs'},
        {name:'PROFILE', src:'/profile'},
        {name:'INFO', src:'/info'},
+       {name:'USERS',src:'/users'}
        ],
        friends:[
          {name:'Nikita',id:1,photo:'https://st3.depositphotos.com/1007566/32981/v/950/depositphotos_329811158-stock-illustration-young-man-avatar-character-icon.jpg'},

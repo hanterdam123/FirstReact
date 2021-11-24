@@ -1,0 +1,33 @@
+
+.main {
+        margin-left:225px;
+        color:white;
+}
+
+.main_users {
+        display:flex;
+        justify-content: space-between;
+        margin-top:30px;
+        border-bottom:2px solid white
+}
+.main_users div {
+        display:flex;
+        align-items: center;
+}
+.main_users div img {
+        width: 80px;
+        height:80px;
+        background-size: auto;
+}
+.main_users p {
+        margin-right:20px;
+        margin-left:10px;
+}
+.main button {
+        width:80px;
+        height:30px;
+}
+
+.users_loc {
+        margin-top:10px;
+}

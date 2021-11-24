@@ -1,12 +1,12 @@
 
-import Posts from './Posts'
+import Posts from './Posts.js'
 import {addPostActionCreator, updatePostActionCreator} from '../../Redux/ProfileReducer/ProfileReducer.js'
 import { connect } from 'react-redux';
 
-
 let mapStateToProps = (state) => {
     return {
-    PostsElement: state.profileReducer.PostsInfo
+        PostsElement: state.profileReducer.PostsInfo,
+        Value: state.profileReducer.newPostText
     }
 }
 

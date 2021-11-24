@@ -3,7 +3,9 @@ import s from './Posts.module.css';
 import Write from './Write/Write.js'
 
 const Posts = (props) => {
-    let PostsElement = props.PostsElement.map(p => <Write message={p.message} like={p.like} dislike={p.dislike} id={p.id} name={p.name} photo={p.photo}/>)
+
+    let PostsElement = props.PostsElement.map(p => <Write message={p.message} like={p.like} dislike={p.dislike} id={p.id} name={p.name} photo={p.photo} key={p.id}/>)
+    let value = props.Value
 
     let newPost = () => {
         props.newPost()
@@ -16,7 +18,7 @@ const Posts = (props) => {
 
     return (
         <div className={s.posts}>
-            <input onChange={onChange} value={props.newPostText} placeholder="write..."></input>
+            <input onChange={onChange} value={value} placeholder="write..."></input>
             <button onClick={newPost}>POST</button>
             {PostsElement}
         </div>

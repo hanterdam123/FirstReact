@@ -20,24 +20,34 @@ let initialState = {
 
 
 const messageReducer = (state = initialState, action) => {
-   switch (action.type) {
-       case ADD_MESSAGE:
+    
+    let stateCopy
+
+    switch (action.type) {
+       case ADD_MESSAGE: {
             let newMessage = {
                 text:state.newMessageText,
                 id:0,
                 name:'Artem',
                 photo: 'https://yt3.ggpht.com/a/AATXAJyM4KuEcv_bqSIjZreW0i3voF85xaiLKUuhN4punw=s900-c-k-c0xffffffff-no-rj-mo'
             }
-            state.MessagesInfo.push(newMessage)
-            state.newMessageText = ''
+            stateCopy = {
+                ...state,
+                newMessageText:'',
+                MessagesInfo:[...state.MessagesInfo,newMessage]
+            }
+            return stateCopy
+       }
+        case CHANGE_MESSAGE: {
+            stateCopy = {
+                ...state,
+                newMessageText: action.text
+            }
+            return stateCopy
+        }
+        default: { 
             return state
-        
-        case CHANGE_MESSAGE: 
-            state.newMessageText = action.text
-            return state
-    
-        default: 
-        return state
+        }
     }
 }
 

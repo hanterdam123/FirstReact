@@ -12,8 +12,11 @@ let initialState = {
   }
 
 const profileReducer = (state = initialState, action) => {
-    switch (action.type) {
-      case ADD_POST:
+    
+  let stateCopy 
+
+  switch (action.type) {
+      case ADD_POST:{
         let newPost = {
           message:state.newPostText,
           id:1,
@@ -22,15 +25,23 @@ const profileReducer = (state = initialState, action) => {
           name:'Artem',
           photo:'https://yt3.ggpht.com/a/AATXAJyM4KuEcv_bqSIjZreW0i3voF85xaiLKUuhN4punw=s900-c-k-c0xffffffff-no-rj-mo'
         }
-        state.PostsInfo.push(newPost)
-        state.newPostText = ''
+        stateCopy = {
+          ...state,
+          PostsInfo: [...state.PostsInfo, newPost] ,
+          newPostText: ''
+        }
+        return stateCopy
+      }
+      case CHANGE_POST:{
+        stateCopy = {
+          ...state,
+          newPostText: action.text
+        }
+        return stateCopy
+      }
+      default: {
         return state
-      
-      case CHANGE_POST:
-        state.newPostText = action.text
-        return state
-      default: 
-      return state
+      }
     }
 }
 
