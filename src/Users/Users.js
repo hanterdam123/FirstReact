@@ -1,38 +1,37 @@
-
-import React from "react"
-import s from './Users.module.css'
-import * as axios from 'axios'
+import React from "react";
+import s from '../Users/Users.module.css'
 
 let Users = (props) => {
-    if(props.Users.length === 0) {
-        axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response=> {
-            props.setUsers(response.data.items)
-        })
+
+    let pageCount = Math.ceil(props.totalUsersCount / props.pageSize)
+    let pages = [];
+    for(let i = 1; i <= pageCount;i++) {
+        if(pages.length < 10) {
+            pages.push(i)
+        }
     }
-    
+
     return (
-    <div class={s.main}>
-            Users
-            {props.Users.map(p => 
-    <div key={p.id}>
-        <div class={s.main_users}>
-            <div>
-                <img src={p.photo}/>
-                <p>{p.name}</p>
-                {p.status}
+    <div className={s.main}>
+        <p>Users</p>
+        {props.users.map(p => {
+        return (
+        <div>
+            <div className={s.main_users}>
+                <div>
+                    
+                    <p>{p.name}</p>
+                    {p.status}
+                </div>
+                <div>
+                </div>
             </div>
-            <div>
-                {p.followed ? <button onClick={props.follow(p.id)}>UNFOLLOW</button> : <button onClick={props.unfollow(p.id)}>FOLLOW</button>}
-            </div>
-        </div>
-        <div class={s.users_loc}>
+            <div className={s.users_loc}>
             
-        </div>
-    </div>
-    )}
-    
-    </div>
-    )
+            </div>
+        </div>)}
+        )}
+        </div>)
 }
 
 export default Users

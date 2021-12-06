@@ -5,7 +5,7 @@
 }
 
 .main_users {
-        display:flex;
+        
         justify-content: space-between;
         margin-top:30px;
         border-bottom:2px solid white
@@ -30,4 +30,16 @@
 
 .users_loc {
         margin-top:10px;
+}
+.numbers {
+        width:100px;
+        display:flex;
+        justify-content: space-between;
+        margin:0 auto;
+}
+.current {
+        font-weight: 900;
+}
+.btn {
+        display:block;
 }

@@ -13,7 +13,7 @@ function App(props) {
   return (
     <BrowserRouter>
       <div className="app">
-        <Header/>
+        <Header />
         <NavbarContainer store={props.store} />
         <Route path='/dialogs' render={() => <DialogsContainer store={props.store} dispatch={props.dispatch}/>} />
         <Route path='/profile' render={() => <Profile store={props.store} dispatch={props.dispatch}/>} />
