@@ -5,13 +5,11 @@
 }
 
 .main_users {
-        
         justify-content: space-between;
         margin-top:30px;
         border-bottom:2px solid white
 }
 .main_users div {
-        display:flex;
         align-items: center;
 }
 .main_users div img {
@@ -21,7 +19,7 @@
 }
 .main_users p {
         margin-right:20px;
-        margin-left:10px;
+        margin-left:0px;
 }
 .main button {
         width:80px;
@@ -40,6 +38,45 @@
 .current {
         font-weight: 900;
 }
-.btn {
-        display:block;
+.info_users p {
+        font-size: 18px
+}
+.info_users img {
+        width:100%;
+        height:100%;
+        background-size:cover
+}
+.pages {
+        justify-content: center;
+        font-size:large;
+        display:flex
+}
+.selected {
+        color:black;
+
+}
+.numbers {
+        display: flex;
+        list-style-type: none;
+        padding-bottom:20px;
+}
+.numbers li {
+        margin-right:10px;
+        
+        font-size: 22px;
+        cursor:pointer
+}
+.selectedPage {
+        color:burlywood
+}
+.loader {
+        width:100px;
+        height:100px;
+        background-color: transparent;
+        position:absolute;
+        left:50%;
+        top:50%
+}
+.info_users button {
+        width:110px
 }

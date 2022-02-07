@@ -92,9 +92,10 @@ ul:nth-child(1) > li {
     width:70px;
     height:50px;
     margin-left:5px;
+    margin-top:20px
 }
 .input {
-    width:70%;
+    width:400px;
     margin-left:165px;
     margin-top:20px;
 }
@@ -109,4 +110,7 @@ ul:nth-child(1) > li {
     border-radius: 9em;
     height:100px;
     
+}
+form {
+    display:flex;
 }

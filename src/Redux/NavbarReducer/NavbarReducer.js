@@ -13,7 +13,7 @@ let initialState = {
          {name:'Masha', id:3, photo:'https://yobte.ru/uploads/posts/2019-11/krasivye-devushki-s-dlinnymi-volosami-60-foto-43.jpg'}
        ],
        sidebar:[
-         {photo:"https://www.ixbt.online/idata/gtnews/2020/08/[5f2afc5556bae]/dR719lj213411WqhfZaFH5CB536oc6M47E7mPOLO.jpeg"}
+         {photo:"https://phonoteka.org/uploads/posts/2021-05/1621734097_15-phonoteka_org-p-fon-iz-ikonok-sotsialnikh-setei-16.jpg"}
        ]
 }
 

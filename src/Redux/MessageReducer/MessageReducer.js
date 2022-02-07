@@ -26,7 +26,7 @@ const messageReducer = (state = initialState, action) => {
     switch (action.type) {
        case ADD_MESSAGE: {
             let newMessage = {
-                text:state.newMessageText,
+                text:action.body,
                 id:0,
                 name:'Artem',
                 photo: 'https://yt3.ggpht.com/a/AATXAJyM4KuEcv_bqSIjZreW0i3voF85xaiLKUuhN4punw=s900-c-k-c0xffffffff-no-rj-mo'
@@ -51,7 +51,7 @@ const messageReducer = (state = initialState, action) => {
     }
 }
 
-export const addMessageActionCreator = () => ({type:ADD_MESSAGE})
+export const addMessageActionCreator = (body) => ({type:ADD_MESSAGE, body})
 
 export const updateMessageActionCreator = (text) => ({type:CHANGE_MESSAGE , text:text})
 

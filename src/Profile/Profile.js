@@ -1,21 +1,22 @@
 import React from 'react';
 import s from'./Profile.module.css';
-import Name from './Name/Name.js';
 import Logo from './Logo/Logo.js';
 import PostsContainer from './Posts/PostsContainer';
+import Name from './Name/Name';
 
 const Profile = (props) => {
+    
     return (
         <div className={s.profile}>
             <div className={s.people}>
-                <Logo src='https://placepic.ru/wp-content/uploads/2018/01/art-krasivyie-kartinki-Putin-politika-1331294.jpeg'/>
+                <Logo src={props.users}/>
                 <div className={s.description}>
-                    <Name text='nickname'/>
+                    <Name status={props.status} src={props.users} updateStatus={props.updateStatus}/>
                 </div>
             </div>
             <PostsContainer store={props.store} dispatch={props.dispatch}/>
         </div>
-        
-    );
+    )
 }
+
 export default Profile;

@@ -2,13 +2,16 @@
 import Dialogs from './Dialogs.js'
 import {addMessageActionCreator, updateMessageActionCreator} from '.././Redux/MessageReducer/MessageReducer.js'
 import { connect } from 'react-redux'
+import {authRedirect} from '../HOC/authRedirect.js'
+import { compose } from 'redux'
 
 let mapStateToProps = (state) => {
     
     return ({
         DialogsElement: state.messageReducer.DialogsInfo,
         MessagesElement: state.messageReducer.MessagesInfo,
-        Value: state.messageReducer.newMessageText
+        Value: state.messageReducer.newMessageText,
+        isAuth:state.authReducer.isAuth
     })
 
 }
@@ -16,8 +19,8 @@ let mapStateToProps = (state) => {
 let mapDispatchToProps = (dispatch) => 
 {
     return ({
-        addMessage: () => {
-            dispatch(addMessageActionCreator())
+        addMessage: (body) => {
+            dispatch(addMessageActionCreator(body))
         },
     
         onChange: (text) => {
@@ -26,6 +29,5 @@ let mapDispatchToProps = (dispatch) =>
     })
 }
 
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs)
+export default compose(connect(mapStateToProps, mapDispatchToProps) ,authRedirect)(Dialogs)
 
-export default DialogsContainer

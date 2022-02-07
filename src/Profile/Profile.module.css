@@ -8,8 +8,9 @@
     border-radius:10px;
   }
   .description {
-    color:white;
+    color:rgb(128, 64, 64);
     margin-left:20px;
+    margin-top:60px;
   }
   .people {
     display:flex;

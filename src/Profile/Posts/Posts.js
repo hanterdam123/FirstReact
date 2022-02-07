@@ -1,27 +1,41 @@
 import React from 'react';
+import { reduxForm , Field} from 'redux-form';
 import s from './Posts.module.css';
 import Write from './Write/Write.js'
+import { requiredField, maxLengthCreator } from '../../validators/validators';
+import { Textarea } from '../../validators/FormsControl';
 
-const Posts = (props) => {
+let maxLength10 = maxLengthCreator(10)
 
+const Posts = React.memo(props => {
+
+    console.log('ll')
     let PostsElement = props.PostsElement.map(p => <Write message={p.message} like={p.like} dislike={p.dislike} id={p.id} name={p.name} photo={p.photo} key={p.id}/>)
     let value = props.Value
 
-    let newPost = () => {
-        props.newPost()
+    let newPost = (values) => {
+        props.newPost(values.newPost)
     }
 
-    let onChange = (e) => {
-        let text = e.target.value;
-        props.onChange(text)
+    const ProfileForm = (props) => {
+        return (
+            <form onSubmit={props.handleSubmit}> 
+                <Field component={Textarea} name={'newPost'} validate={[requiredField, maxLength10]}></Field>
+                <button>POST</button>
+            </form>
+        )
     }
+    
+    const ProfileReduxForm = reduxForm({form:'post'})(ProfileForm)
 
     return (
         <div className={s.posts}>
-            <input onChange={onChange} value={value} placeholder="write..."></input>
-            <button onClick={newPost}>POST</button>
+            <ProfileReduxForm onSubmit={newPost}/>
             {PostsElement}
         </div>
     )
-}
+
+})
+
+
 export default Posts;
