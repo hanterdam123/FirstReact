@@ -1,12 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component, Suspense } from 'react'
 import './App.css'
-import DialogsContainer from './Dialogs/DialogsContainer'
 import News from './News/News.js'
 import Info from './Info/Info.js'
 import {Route} from 'react-router-dom'
 import NavbarContainer from './Navbar/NavbarContainer'
 import UsersContainer from './Users/UsersContainer'
-import ProfileContainer from './Profile/ProfileContainer'
 import HeaderC from './Header/HeaderContainer'
 import Login from './Login/Login'
 import { connect } from 'react-redux'
@@ -17,6 +15,9 @@ import {initialize} from './Redux/appReducers'
 import {Provider} from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import store from './Redux/ReduxStore.js'
+
+const DialogsContainer = React.lazy(() => import ('./Dialogs/DialogsContainer') )
+const ProfileContainer = React.lazy(() => import ('./Profile/ProfileContainer') )
 
 class App extends Component {
   
@@ -32,6 +33,7 @@ class App extends Component {
 
       return (
         <div className="app">
+          <Suspense fallback={<h1>Loading...</h1>}>
           <HeaderC store={this.props.store}/>
           <NavbarContainer store={this.props.store} />
           <Route path='/dialogs' render={() => <DialogsContainer store={this.props.store} dispatch={this.props.dispatch}/>} />
@@ -40,6 +42,7 @@ class App extends Component {
           <Route path='/info' component={Info} />
           <Route path='/users' render={() => <UsersContainer store={this.props.store} dispatch={this.props.dispatch}/>}/>
           <Route path='/login' render={() => <Login/>}/>
+          </Suspense>
         </div>
       )
   }
